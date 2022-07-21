@@ -1,6 +1,10 @@
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
 import navLogo from '../assets/navlogo.png'
+import auth from '../firebase.init'
+import { signOut } from 'firebase/auth';
+import { ClipLoader } from 'react-spinners'
 
 const Navbar = () => {
     const menuBar = <>
@@ -10,6 +14,20 @@ const Navbar = () => {
         <li><Link to="/item4">Item 4</Link></li>
         <li><Link to="/item5">Item 5</Link></li>
     </>
+
+    const [user, loading] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+    };
+
+    // loadings //
+    if (loading) {
+        return <div className='h-screen flex justify-center items-center'>
+            <ClipLoader loading={loading} size={150} />
+        </div>
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -31,25 +49,27 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" alt='owner' />
-                        </div>
-                    </label>
-                    <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <Link to="profile" className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </Link>
-                        </li>
-                        <li><Link to="settings">Settings</Link></li>
-                        <li><Link to="/">Logout</Link></li>
-                    </ul>
-                </div>
+                {user ?
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src="https://placeimg.com/80/80/people" alt='owner' />
+                            </div>
+                        </label>
+                        <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li>
+                                <Link to="profile" className="justify-between">
+                                    Profile
+                                    <span className="badge">New</span>
+                                </Link>
+                            </li>
+                            <li><Link to="settings">Settings</Link></li>
+                            <li><button onClick={logout}>Log out</button></li>
+                        </ul>
+                    </div> :
 
-                <Link to="/"><button className='btn btn-ghost'>Logout</button></Link>
+                    <Link to="/security"><button className='btn btn-ghost'>Login</button></Link>
+                }
             </div>
         </div>
 
