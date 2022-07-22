@@ -9,6 +9,8 @@ import Settings from "./pages/Settings/Settings";
 import ChangePass from "./components/ChangePass";
 import Profile from "./pages/Profile/Profile";
 import AddItem from "./pages/AddItem/AddItem";
+import Products from "./pages/Product/Products";
+import UpdateItem from "./components/UpdateItem";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/change-password" element={<ChangePass />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/additem" element={<AddItem />}></Route>
+        <Route path="/products" element={<Products />}></Route>
+        <Route path="/products/:id" element={<UpdateItem />}></Route>
       </Routes>
     </div>
   );
