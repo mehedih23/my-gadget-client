@@ -10,9 +10,9 @@ const Navbar = () => {
     const navigate = useNavigate();
     const menuBar = <>
         <li className='mx-1'><Link className='font-bold' to="/">Home</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/products">Products</Link></li>
         <li className='mx-1'><Link className='font-bold' to="/about">About</Link></li>
         <li className='mx-1'><Link className='font-bold' to="/contactus">Contact Us</Link></li>
-        <li className='mx-1'><Link className='font-bold' to="/ourteam">Our Team</Link></li>
         <li className='mx-1'><Link className='font-bold' to="/blogs">Blogs</Link></li>
     </>
 
@@ -62,6 +62,9 @@ const Navbar = () => {
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
                                 <Link to="profile" className="justify-between">Profile</Link>
+                            </li>
+                            <li>
+                                <Link to="additem" className="justify-between">Add Item</Link>
                             </li>
                             <li><Link to="settings">Settings</Link></li>
                             <li><button onClick={logout}>Log out</button></li>

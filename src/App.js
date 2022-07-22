@@ -8,6 +8,7 @@ import ForgotPass from "./components/ForgotPass";
 import Settings from "./pages/Settings/Settings";
 import ChangePass from "./components/ChangePass";
 import Profile from "./pages/Profile/Profile";
+import AddItem from "./pages/AddItem/AddItem";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/settings" element={<Settings />}></Route>
         <Route path="/change-password" element={<ChangePass />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/additem" element={<AddItem />}></Route>
       </Routes>
     </div>
   );
