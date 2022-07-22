@@ -51,7 +51,7 @@ const Signup = () => {
         await updateProfile({ displayName: name });
         toast.success('Please Verify your email.', { id: 'verify-email' });
 
-        fetch(`http://localhost:1111/registeruser`, {
+        fetch(`https://evening-beyond-97971.herokuapp.com/registeruser`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

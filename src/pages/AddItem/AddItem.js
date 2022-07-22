@@ -15,7 +15,7 @@ const AddItem = () => {
         const price = data.price;
         const details = data.details;
         const product = { category, name, price, details };
-        fetch(`http://localhost:1111/additem`, {
+        fetch(`https://evening-beyond-97971.herokuapp.com/additem`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

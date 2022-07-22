@@ -13,7 +13,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:1111/user?email=${user?.email}`)
+        fetch(`https://evening-beyond-97971.herokuapp.com/user?email=${user?.email}`)
             .then(response => response.json())
             .then(data => {
                 setUsers(data)
@@ -55,7 +55,7 @@ const Profile = () => {
             education,
             linkedInLink
         }
-        fetch(`http://localhost:1111/userDetails/${users?._id}`, {
+        fetch(`https://evening-beyond-97971.herokuapp.com/userDetails/${users?._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

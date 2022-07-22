@@ -8,7 +8,7 @@ const UpdateItem = () => {
     const [item, setItem] = useState({})
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:1111/getitem/${id}`)
+        fetch(`https://evening-beyond-97971.herokuapp.com/getitem/${id}`)
             .then(response => response.json())
             .then(data => setItem(data))
     }, [id, setItem])
@@ -22,7 +22,7 @@ const UpdateItem = () => {
         const price = data.price;
         const details = data.details;
         const product = { name, price, details };
-        fetch(`http://localhost:1111/updateDetails/${id}`, {
+        fetch(`https://evening-beyond-97971.herokuapp.com/updateDetails/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -33,7 +33,7 @@ const Product = ({ product }) => {
                     'Deleted!',
                     'Your item has been deleted.',
                     'success',
-                    fetch(`http://localhost:1111/product/${_id}`, {
+                    fetch(`https://evening-beyond-97971.herokuapp.com/product/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(response => response.json())
