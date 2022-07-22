@@ -46,7 +46,7 @@ const Signup = () => {
         const name = data.name;
         const email = data.email;
         const password = data.password;
-        const myUser = { name, email, password };
+        const myUser = { userName: name, email };
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({ displayName: name });
         toast.success('Please Verify your email.', { id: 'verify-email' });

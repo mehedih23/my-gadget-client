@@ -1,12 +1,13 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import navLogo from '../assets/navlogo.png'
 import auth from '../firebase.init'
 import { signOut } from 'firebase/auth';
 import { ClipLoader } from 'react-spinners'
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const menuBar = <>
         <li className='mx-1'><Link className='font-bold' to="/">Home</Link></li>
         <li className='mx-1'><Link className='font-bold' to="/about">About</Link></li>
@@ -18,6 +19,7 @@ const Navbar = () => {
     const [user, loading] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        navigate('/');
     };
 
     // loadings //

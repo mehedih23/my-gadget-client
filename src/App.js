@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast';
 import ForgotPass from "./components/ForgotPass";
 import Settings from "./pages/Settings/Settings";
 import ChangePass from "./components/ChangePass";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPass />}></Route>
         <Route path="/settings" element={<Settings />}></Route>
         <Route path="/change-password" element={<ChangePass />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
     </div>
   );
