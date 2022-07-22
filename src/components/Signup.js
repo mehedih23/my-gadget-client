@@ -5,7 +5,6 @@ import auth from '../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { ClipLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
-// import useToken from '../../hooks/useToken';
 import google from '../assets/google.png'
 
 
@@ -47,9 +46,24 @@ const Signup = () => {
         const name = data.name;
         const email = data.email;
         const password = data.password;
+        const myUser = { name, email, password };
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({ displayName: name });
         toast.success('Please Verify your email.', { id: 'verify-email' });
+
+        fetch(`http://localhost:1111/registeruser`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(myUser)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Account Create Successfully', { id: 'account successfull' })
+                }
+            })
 
     };
     return (

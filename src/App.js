@@ -4,6 +4,9 @@ import Security from "./pages/Security/Security";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { Toaster } from 'react-hot-toast';
+import ForgotPass from "./components/ForgotPass";
+import Settings from "./pages/Settings/Settings";
+import ChangePass from "./components/ChangePass";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route index element={<Login></Login>}></Route>
           <Route path='/security/signup' element={<Signup></Signup>}></Route>
         </Route>
+        <Route path="/forgot-password" element={<ForgotPass />}></Route>
+        <Route path="/settings" element={<Settings />}></Route>
+        <Route path="/change-password" element={<ChangePass />}></Route>
       </Routes>
     </div>
   );

@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import auth from "../firebase.init";
 import google from '../assets/google.png'
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -45,7 +46,7 @@ const Login = () => {
         const email = data.email;
         const password = data.password;
         signInWithEmailAndPassword(email, password)
-
+        toast.success('Login Successfully', { id: 'Login Successfully' });
     };
 
     return (

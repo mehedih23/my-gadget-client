@@ -8,15 +8,14 @@ import { ClipLoader } from 'react-spinners'
 
 const Navbar = () => {
     const menuBar = <>
-        <li><Link to="/item1">Item 1</Link></li>
-        <li><Link to="/item2">Item 2</Link></li>
-        <li><Link to="/item3">Item 3</Link></li>
-        <li><Link to="/item4">Item 4</Link></li>
-        <li><Link to="/item5">Item 5</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/">Home</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/about">About</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/contactus">Contact Us</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/ourteam">Our Team</Link></li>
+        <li className='mx-1'><Link className='font-bold' to="/blogs">Blogs</Link></li>
     </>
 
     const [user, loading] = useAuthState(auth);
-
     const logout = () => {
         signOut(auth);
     };
@@ -52,16 +51,15 @@ const Navbar = () => {
                 {user ?
                     <div className="dropdown dropdown-end">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" alt='owner' />
+                            <div class="avatar placeholder">
+                                <div class="bg-neutral-focus text-neutral-content rounded-full w-10">
+                                    <span class="text-3xl">{user?.displayName?.slice(0, 1)}</span>
+                                </div>
                             </div>
                         </label>
                         <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <Link to="profile" className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </Link>
+                                <Link to="profile" className="justify-between">Profile</Link>
                             </li>
                             <li><Link to="settings">Settings</Link></li>
                             <li><button onClick={logout}>Log out</button></li>
