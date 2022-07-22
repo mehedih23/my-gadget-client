@@ -11,6 +11,7 @@ import Profile from "./pages/Profile/Profile";
 import AddItem from "./pages/AddItem/AddItem";
 import Products from "./pages/Product/Products";
 import UpdateItem from "./components/UpdateItem";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
       <Toaster
         position="bottom-right"
         reverseOrder={false} />
-      <Home />
+      <Navbar></Navbar>
       <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
         <Route path='/security' element={<Security></Security>}>
           <Route index element={<Login></Login>}></Route>
           <Route path='/security/signup' element={<Signup></Signup>}></Route>

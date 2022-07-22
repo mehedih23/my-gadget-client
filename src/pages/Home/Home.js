@@ -1,10 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
+import mygadget from '../../assets/mygadget.png';
 
 const Home = () => {
     return (
         <>
-            <Navbar />
+            <div className='h-fit'>
+                <img src={mygadget} alt="mygadget" />
+            </div>
         </>
     )
 }

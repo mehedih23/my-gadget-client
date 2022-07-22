@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-// import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom'
 
 const UpdateItem = () => {
